@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Threading;
+
+namespace Grafik2
+{
+    public partial class Form1 : Form
+    {
+        int y = 0;
+
+        public Form1()
+
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            y = y - 1;
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = this.CreateGraphics();
+            Pen myPen = new Pen(System.Drawing.Color.Green, 5);
+            graphicsObj.DrawLine(myPen, 50, 50, 200, 50);
+            Pen myPen1 = new Pen(System.Drawing.Color.Blue, 5);
+            Rectangle myRectangle = new Rectangle(0, 0, 100, 100);
+            myRectangle = new Rectangle(0, 0, 100 + y, 100 + y);
+            graphicsObj.DrawRectangle(myPen1, myRectangle);
+
+        }
+
+
+    private void button1_Click(object sender, EventArgs e)
+        {
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = this.CreateGraphics();
+            Pen myPen = new Pen(System.Drawing.Color.Green, 5);
+            graphicsObj.DrawLine(myPen, 50, 50, 200, 50);
+            Pen myPen1 = new Pen(System.Drawing.Color.Blue, 5);
+            Rectangle myRectangle = new Rectangle(0, 0, 100, 100);
+            graphicsObj.DrawRectangle(myPen1, myRectangle);
+        }
+        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            y = y - 1;
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = this.CreateGraphics();
+            Pen myPen = new Pen(System.Drawing.Color.Green, 5);
+            graphicsObj.DrawLine(myPen, 50, 50, 200, 50);
+            Pen myPen1 = new Pen(System.Drawing.Color.Blue, 5);
+            Rectangle myRectangle = new Rectangle(0, 0, 100, 100);
+            myRectangle = new Rectangle(0, 0, 100 - y, 100 - y);
+            graphicsObj.DrawRectangle(myPen1, myRectangle);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
+
+    }
+}
